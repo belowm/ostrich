@@ -165,7 +165,7 @@ begin
   if $report_to_ganglia # call gmetric for metrics
     metrics.each_slice(100) do |some_metrics|
       cmd = some_metrics.map do |name, value, units|
-        "gmetric -t float -g \"#{$ganglia-group}\" -n \"#{$ganglia_prefix}#{name}\" -v \"#{value}\" -u \"#{units}\" -d #{$stat_timeout}"
+        "gmetric -t float -g \"#{$ganglia_group}\" -n \"#{$ganglia_prefix}#{name}\" -v \"#{value}\" -u \"#{units}\" -d #{$stat_timeout}"
       end.join("\n")
       res = system cmd
       unless res

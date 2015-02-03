@@ -72,7 +72,6 @@ opts.each do |opt, arg|
   when '-t'
     period = arg.to_i
   when '-w'
-    port = 9990
     use_web = true
   end
 end
